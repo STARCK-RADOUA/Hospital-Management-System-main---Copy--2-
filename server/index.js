@@ -6,6 +6,11 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 require("dotenv").config();
 
+<<<<<<< Updated upstream
+=======
+//salut jsjj
+
+>>>>>>> Stashed changes
 const getAllPatients = require("./routes/api/getAllPatients");
 const getPatientByID = require("./routes/api/getPatientByID");
 const createPatient = require("./routes/api/createPatient");

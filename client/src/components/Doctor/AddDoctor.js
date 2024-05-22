@@ -1,9 +1,18 @@
+<<<<<<< Updated upstream
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import ErrorDialogueBox from '../MUIDialogueBox/ErrorDialogueBox';
 import Box from '@mui/material/Box';
 
+=======
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import ErrorDialogueBox from "../MUIDialogueBox/ErrorDialogueBox";
+import Box from "@mui/material/Box";
+import axios from "axios";
+//ss
+>>>>>>> Stashed changes
 function Adddoctor() {
   const navigate = useNavigate();
   const [firstName, setFirstName] = useState('');
