@@ -103,11 +103,11 @@ export default function AdminDashboard() {
             </div>
             <div className={styles.statCardGrid}>
                 <div className={["", styles.statCard].join(" ")}>
-                    <div className={styles.dashWidget}>
+                    <div className={styles.dashWidget} >
                         <span className={styles.dashWidgetBg1}><i className="fa fa-stethoscope" aria-hidden="true"></i></span>
                         <div className={[" ", styles.dashWidgetInfo].join(" ")} >
                             <h3 className={styles.dashWidgetInfoH3}>{doctorCount}</h3>
-                            <span className={styles.widgetTitle1}>Doctors <i class="fa fa-check" aria-hidden="true"></i></span>
+                            <NavLink to="/doctors" className={styles.widgetTitle1}>Doctors <i class="fa fa-check" aria-hidden="true"></i></NavLink>
                         </div>
                     </div>
                 </div>
@@ -116,7 +116,7 @@ export default function AdminDashboard() {
                         <span className={styles.dashWidgetBg2}><i className="fa fa-user-o" aria-hidden="true"></i></span>
                         <div className={[" ", styles.dashWidgetInfo].join(" ")} >
                             <h3 className={styles.dashWidgetInfoH3}>{patientCount}</h3>
-                            <span className={styles.widgetTitle2}>Patients <i class="fa fa-check" aria-hidden="true"></i></span>
+                            <NavLink  to="/patients" className={styles.widgetTitle2}>Patients <i class="fa fa-check" aria-hidden="true"></i></NavLink>
                         </div>
                     </div>
                 </div>
@@ -125,7 +125,7 @@ export default function AdminDashboard() {
                         <span className={styles.dashWidgetBg3}><i className=" fa fa-calendar" aria-hidden="true"></i></span>
                         <div className={[" ", styles.dashWidgetInfo].join(" ")} >
                             <h3 className={styles.dashWidgetInfoH3}>{appsTodayCount}</h3>
-                            <span className={styles.widgetTitle3}>Appointments Today <i class="fa fa-check" aria-hidden="true"></i></span>
+                            <NavLink to="/appointments" className={styles.widgetTitle3}>Appointments Today <i class="fa fa-check" aria-hidden="true"></i></NavLink>
                         </div>
                     </div>
                 </div>
@@ -134,7 +134,7 @@ export default function AdminDashboard() {
                         <span className={styles.dashWidgetBg4}><i className="fa fa-heartbeat" aria-hidden="true"></i></span>
                         <div className={[" ", styles.dashWidgetInfo].join(" ")} >
                             <h3 className={styles.dashWidgetInfoH3}>{pendingAppsTodayCount}</h3>
-                            <span className={styles.widgetTitle4}>Pending Appointments <i class="fa fa-check" aria-hidden="true"></i></span>
+                            <NavLink to="/appointments" className={styles.widgetTitle4}>Pending Appointments <i class="fa fa-check" aria-hidden="true"></i></NavLink>
                         </div>
                     </div>
                 </div>
