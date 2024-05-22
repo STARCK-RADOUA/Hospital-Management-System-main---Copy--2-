@@ -19,6 +19,8 @@ function Editdoctor() {
   const [userId, setUserId] = useState('');
   const [passwordMatchDisplay, setPasswordMatchDisplay] = useState('none');
   const [passwordValidationMessage, setPasswordValidationMessage] = useState('');
+  const [departementList, setdepartementList] = useState([]);
+
   const { id } = useParams();
 
   const [errorDialogueBoxOpen, setErrorDialogueBoxOpen] = useState(false);
@@ -90,6 +92,24 @@ function Editdoctor() {
     }
   }, [password, confirmPassword])
 
+
+  useEffect(() => {
+    getDepartement();
+  }, []);
+
+  const getDepartement = async () => {
+    try {
+      const response = await axios.get("http://localhost:3001/departements");
+      const departmentNames = response.data.map((dept) => dept.name); // Extract the names from the response
+      setdepartementList(departmentNames);
+      console.log("Departement List:", departmentNames);
+    } catch (error) {
+      setErrorList([error.message]);
+      handleDialogueOpen();
+    }
+  };
+
+
   return (
     <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
       <div className="page-wrapper">
@@ -151,16 +171,19 @@ function Editdoctor() {
                     <div className="col-sm-6">
                       <div className="form-group">
                         <label>Department</label>
-                        <select name="department" className="form-select" value={department} onChange={(event) => setDepartment(event.target.value)}>
-                          
-                          <option value="Médecine interne">Médecine interne</option>
-                          <option value="Chirurgie générale ">Chirurgie générale</option>
-                          <option value="Radiologie">Radiologie</option>
-                          <option value="Pédiatrie">Pédiatrie</option>
-                          <option value="Cardiologie">Cardiologie</option>
-                          <option value="Gynécologie">Gynécologie</option>
-                          <option value="Neurologie">Neurologie</option>
-                          <option value="Orthopédie">Orthopédie</option>
+                        <select
+                          name="department"
+                          className="form-select"
+                          value={department}
+                          onChange={(event) =>
+                            setDepartment(event.target.value)
+                          }
+                        >
+                          {departementList.map((dept, index) => (
+                            <option key={index} value={dept}>
+                              {dept}
+                            </option>
+                          ))}
                         </select>
                       </div>
                     </div>
