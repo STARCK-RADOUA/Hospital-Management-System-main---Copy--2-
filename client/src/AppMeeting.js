@@ -30,7 +30,7 @@ function AppMeeting() {
       };
     }
   }, [isMobile]);
-
+console.log(participantName);
   return (
     <>
       <MeetingAppProvider>  
@@ -41,7 +41,7 @@ function AppMeeting() {
               meetingId,
               micEnabled: micOn,
               webcamEnabled: webcamOn,
-              name: participantName ? participantName : "TestUser",
+              name: participantName ? participantName : "TessssstUser",
               multiStream: true,
               customCameraVideoTrack: customVideoStream,
               customMicrophoneAudioTrack: customAudioStream
