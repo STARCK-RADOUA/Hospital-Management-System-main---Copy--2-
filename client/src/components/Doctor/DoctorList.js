@@ -35,11 +35,24 @@ function DoctorList() {
             }
         });
         setdoctor(response.data);
+        console.log("doctors", response.data);
     };
 
     const deleteDoctor = async (id) => {
         try {
             await axios.delete(`http://localhost:3001/doctors/${id}`);
+            getdoctors();
+        } catch (error) {
+            setErrorList(error);
+            handleDialogueOpen();
+        }
+    };
+    const toggleActivatedStatus = async (id, currentActivatedStatus) => {
+        try {
+            // Inverser le statut actuel
+            const newActivatedStatus = !currentActivatedStatus;
+            console.log("newActivatedStatus", newActivatedStatus);
+            await axios.patch(`http://localhost:3001/doctors/${id}/activated`, { activated: newActivatedStatus });
             getdoctors();
         } catch (error) {
             setErrorList(error);
@@ -79,7 +92,7 @@ function DoctorList() {
                         </div>
                         </div>
                     </form>
-                    <DoctorTable doctorList={doctors} deleteDoctor={deleteDoctor} />
+                    <DoctorTable doctorList={doctors} deleteDoctor={deleteDoctor} toggleActivatedStatus={toggleActivatedStatus}/>
                     
                 </div>
                 <ErrorDialogueBox

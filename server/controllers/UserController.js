@@ -191,11 +191,47 @@ const deleteUser = async (req, res) => {
         res.status(400).json({ message: error.message });
     }
 }
+const getActivatedStatus = async (userId) => {
+    try {
+        // Trouver l'utilisateur par son identifiant (userId)
+        const user = await User.findById(userId);
 
+        if (!user) {
+            throw new Error("Utilisateur introuvable");
+        }
+
+        // Renvoyer la valeur de "activated"
+        return { activated: user.activated };
+    } catch (error) {
+        throw error;
+    }
+}
+const editActivatedStatus = async (userId, newActivatedStatus) => {
+    try {
+        // Trouver l'utilisateur par son identifiant (userId)
+        const user = await User.findById(userId);
+
+        if (!user) {
+            throw new Error("Utilisateur introuvable");
+        }
+
+        // Mettre à jour la valeur de "activated" avec la nouvelle valeur
+        user.activated = newActivatedStatus;
+
+        // Enregistrer l'utilisateur mis à jour
+        await user.save();
+
+        return { message: "Statut 'activated' mis à jour avec succès" };
+    } catch (error) {
+        throw error;
+    }
+}
 module.exports = {
     getUsers,
     getUserById,
     saveUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    getActivatedStatus,
+    editActivatedStatus
 }

@@ -18,18 +18,23 @@ import { BootstrapDialog, BootstrapDialogTitle } from "../MUIDialogueBox/Boostra
 import DialogContent from '@mui/material/DialogContent';
 import AppointmentForm from '../Forms/AppointmentForm'
 import { NavLink, useNavigate } from 'react-router-dom';
+import Switch from '@mui/material/Switch';
 
 const columns = [
     { id: 'Name', label: 'Name', minWidth: 170 },
     { id: 'Email', label: 'Email', minWidth: 170 },
     { id: 'Phone', label: 'Phone', minWidth: 170 },
     { id: 'Department', label: 'Department', minWidth: 170 },
+    { id: 'activated', label: 'Activated', minWidth: 100 },
     { id: 'actionsID', label: 'Actions', minWidth: 100 },
+    
+
 ];
 
-function createData(Name, Email, Phone, Department, actionsID) {
-    return { Name, Email, Phone, Department, actionsID };
+function createData(Name, Email, Phone, Department, activated, actionsID) {
+    return { Name, Email, Phone, Department, activated, actionsID };
 }
+
 
 // const rows = [
 //     createData('John Doe', 'Dr. Smith', '2023-03-20', '10:00 AM', ''),
@@ -41,7 +46,7 @@ function createData(Name, Email, Phone, Department, actionsID) {
 
 // ];
 
-export default function UserTable({ doctorList, deleteDoctor }) {
+export default function UserTable({ doctorList, deleteDoctor ,toggleActivatedStatus}) {
     const [page, setPage] = React.useState(0);
     // const [rows, setRows] = React.useState([]);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -74,6 +79,7 @@ export default function UserTable({ doctorList, deleteDoctor }) {
             doctor.userId.email,
             doctor.phone,
             doctor.department,
+            doctor.userId.activated,
             doctor._id
         )
     })
@@ -111,11 +117,24 @@ export default function UserTable({ doctorList, deleteDoctor }) {
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             .map((row) => {
                                 return (
-                                    <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                                    <TableRow hover role="checkbox" tabIndex={-1} key={row.actionsID}>
+
                                         {columns.map((column) => {
                                             const value = row[column.id];
+                                             if (column.id === 'activated') {
+    return (
+        <TableCell key={column.id} align={column.align}>
+            <Switch
+                checked={value}
+                onChange={() => toggleActivatedStatus(row.actionsID, value)}
+                inputProps={{ 'aria-label': 'controlled' }}
+            />
+        </TableCell>
+    );
+}
 
-                                            if (column.id === 'actionsID') {
+
+else  if (column.id === 'actionsID') {
                                                 return (
                                                     <TableCell key={column.id} align={column.align}>
                                                         <Tooltip title="Edit" placement="top" arrow>

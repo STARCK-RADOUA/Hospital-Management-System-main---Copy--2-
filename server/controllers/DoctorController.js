@@ -1,19 +1,18 @@
 const Doctor = require("../models/doctor.js");
 const User = require("../models/user.js");
+const { getActivatedStatus, editActivatedStatus } = require("../controllers/UserController");
+
+
 
 const getDoctors = async (req, res) => {
-
     try {
+        const searchdoctor = req.query.name ? new RegExp(req.query.name, 'i') : null;
 
-        var searchdoctor = new RegExp(req.query.name, 'i');
-
-        let doctors = [];
-        if (!searchdoctor) {
-            doctors = await Doctor.find({}).populate('userId');
-        } else {
+        let doctors;
+        if (searchdoctor) {
             doctors = await Doctor.find().populate({
                 path: 'userId',
-                select: 'firstName lastName email username',
+                select: 'firstName lastName email username activated',
                 match: {
                     $or: [
                         { firstName: { $regex: searchdoctor } },
@@ -21,15 +20,28 @@ const getDoctors = async (req, res) => {
                         { email: { $regex: searchdoctor } }
                     ]
                 }
-            }).then((doctors) => doctors.filter((doctor => doctor.userId != null)));
+            }).then(doctors => doctors.filter(doctor => doctor.userId != null));
+        } else {
+            doctors = await Doctor.find({}).populate('userId', 'firstName lastName email username activated');
+        }
+
+        // Ajout de la propriété activated à chaque médecin
+        for (let doctor of doctors) {
+            if (doctor.userId && doctor.userId.activated !== undefined) {
+                doctor = doctor.toObject();  // Convertir en objet JS standard pour ajouter la propriété
+                doctor.activated = doctor.userId.activated;
+            } else {
+                const { activated } = await getActivatedStatus(doctor.userId._id);
+                doctor = doctor.toObject();  // Convertir en objet JS standard pour ajouter la propriété
+                doctor.activated = activated;
+            }
         }
 
         res.json(doctors);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
-}
-
+};
 const getDoctorById = async (req, res) => {
     //console.log(req.params.id);
     try {
@@ -73,6 +85,21 @@ const isDoctorValid = (newdoctor) => {
         return { status: true };
     }
 
+}
+
+const editDoctorActivatedStatus = async (req, res) => {
+    try {
+       
+        const { activated } = req.body;
+        const doctor = await Doctor.findById(req.params.userId).populate('userId');
+
+        // Modifier l'état "activated" de l'utilisateur
+        await editActivatedStatus(doctor.userId._id, activated);
+
+        res.status(200).json({ message: "Statut 'activated' mis à jour avec succès" });
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
 }
 
 const saveDoctor = async (req, res) => {
@@ -160,5 +187,6 @@ module.exports = {
     getDoctorById,
     saveDoctor,
     updateDoctor,
+    editDoctorActivatedStatus,
     deleteDoctor
 }
