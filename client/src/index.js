@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import './index.css';
 import App from './App';
-import FacebookLogin from 'react-facebook-login';
 
 
 import "./index12.css";

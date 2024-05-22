@@ -6,7 +6,6 @@ import ErrorDialogueBox from '../MUIDialogueBox/ErrorDialogueBox';
 import { UserContext } from '../../Context/UserContext'
 import CryptoJS from 'crypto-js';
 
-import FacebookLogin from 'react-facebook-login';
 function Login() {
     const navigate = useNavigate();
 

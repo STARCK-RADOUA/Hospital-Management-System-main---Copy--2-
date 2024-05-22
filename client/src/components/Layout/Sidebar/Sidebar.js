@@ -1,3 +1,4 @@
+
 // import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import MuiDrawer from '@mui/material/Drawer';
@@ -218,6 +219,40 @@ export default function Sidebar({ open, handleDrawerClose, handleDrawerOpen }) {
                         <ListItemText primary={"Prescriptions"} sx={{ opacity: open ? 1 : 0 }} />
                     </ListItemButton>
                 </ListItem>
+
+                {currentUser.userType === "Admin" && (
+                    <ListItem key={"Departments"} disablePadding sx={{ display: 'block' }}>
+                        <ListItemButton
+                            component={NavLink}
+                            to="/departements"
+                            style={{ textDecoration: 'none', color: 'white' }}
+                            selected={selectedItem == "departments" ? true : false}
+                            sx={{
+                                minHeight: 48,
+                                justifyContent: open ? 'initial' : 'center',
+                                px: 2.5,
+                                "&.Mui-selected": {
+                                    backgroundColor: "#facf34f6",
+                                },
+                                "&.Mui-selected:hover": {
+                                    backgroundColor: "#facf34f6",
+                                },
+                            }}
+                        >
+                            <ListItemIcon
+                                sx={{
+                                    minWidth: 0,
+                                    mr: open ? 3 : 'auto',
+                                    justifyContent: 'center',
+                                }}
+                            >
+                                <LocalHospitalIcon style={{ color: '#fff' }} />
+                            </ListItemIcon>
+                            <ListItemText primary={"Departments"} sx={{ opacity: open ? 1 : 0 }} />
+                        </ListItemButton>
+                    </ListItem>
+                )}
+
 
 
                 {(currentUser.userType == "Admin" || currentUser.userType == "Doctor") && <ListItem key={"Medicines"} disablePadding sx={{ display: 'block' }}>

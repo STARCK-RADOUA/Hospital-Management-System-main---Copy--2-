@@ -45,6 +45,10 @@ import ReactDOM from "react-dom/client";
 import AppMeeting from "./AppMeeting";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Departement from './components/Departement/Departement.js';
+import DepartementList from './components/Departement/DepartementList';
+import AddDepartement from './components/Departement/AddDepartement';
+import EditDepartement from './components/Departement/EditDepartement';
 
 const NotFound = () => <h2 style={{ margin: '70px' }}>This Path is not available</h2>;
 
@@ -74,6 +78,7 @@ export default function PageRoutes() {
                     <Route path='add' element={<AddUser />} />
                     <Route path="edit/:id" element={<EditUser />} />
                 </Route>
+
                 <Route path='patients' element={<ProtectedAdminRoute><Patient /></ProtectedAdminRoute>}>
                     <Route index element={<PatientList />} />
                     <Route path='add' element={<AddPatient />} />
@@ -94,6 +99,13 @@ export default function PageRoutes() {
                     <Route path="success" element={<Success />} />
                     <Route path="cancel" element={<Cancel />} />
                 </Route>
+
+                <Route path='departements' element={<ProtectedAdminRoute><Departement /></ProtectedAdminRoute>}>
+                    <Route index element={<DepartementList />} />
+                    <Route path='add' element={<AddDepartement />} />
+                    <Route path="edit/:id" element={<EditDepartement />} />
+                </Route>
+
                 <Route path='patient/history/:id' element={<ProtectedStaffRoute><PatientHistory /></ProtectedStaffRoute>} />
                 <Route path='appointments' element={
                     currentUser.userType === "Admin" ? <AdminAppointment /> :
