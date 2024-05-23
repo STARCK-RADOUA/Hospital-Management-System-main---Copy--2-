@@ -27,40 +27,28 @@ const columns = [
     { id: 'Department', label: 'Department', minWidth: 170 },
     { id: 'activated', label: 'Activated', minWidth: 100 },
     { id: 'actionsID', label: 'Actions', minWidth: 100 },
-    
-
 ];
 
 function createData(Name, Email, Phone, Department, activated, actionsID) {
     return { Name, Email, Phone, Department, activated, actionsID };
 }
 
-
-// const rows = [
-//     createData('John Doe', 'Dr. Smith', '2023-03-20', '10:00 AM', ''),
-//     createData('Jane Doe', 'Dr. Johnson', '2023-03-22', '2:00 PM', ''),
-//     createData('Bob Smith', 'Dr. Lee', '2023-03-24', '11:30 AM', ''),
-//     createData('Alice Johnson', 'Dr. Davis', '2023-03-26', '4:00 PM', ''),
-//     createData('Chris Lee', 'Dr. Martin', '2023-03-28', '3:30 PM', ''),
-//     createData('Sarah Davis', 'Dr. Brown', '2023-03-30', '9:45 AM', ''),
-
-// ];
-
-export default function UserTable({ doctorList, deleteDoctor ,toggleActivatedStatus}) {
+export default function UserTable({ doctorList, deleteDoctor, toggleActivatedStatus }) {
     const [page, setPage] = React.useState(0);
-    // const [rows, setRows] = React.useState([]);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
-
     const [openConfirmDeleteDialogue, setOpenConfirmDeleteDialogue] = React.useState(false);
+    const [deleteDoctorId, setDeleteDoctorId] = React.useState(null);
 
     const navigate = useNavigate();
 
-    const handleDeleteDialogueOpen = () => {
+    const handleDeleteDialogueOpen = (id) => {
+        setDeleteDoctorId(id);
         setOpenConfirmDeleteDialogue(true);
     };
 
     const handleDeleteDialogueClose = () => {
         setOpenConfirmDeleteDialogue(false);
+        setDeleteDoctorId(null);
     };
 
     const handleChangePage = (event, newPage) => {
@@ -73,7 +61,6 @@ export default function UserTable({ doctorList, deleteDoctor ,toggleActivatedSta
     };
 
     let rows = doctorList.map((doctor) => {
-        // console.log("inside map",await getPatientByID(apt.patientId))
         return createData(
             doctor.userId.firstName + " " + doctor.userId.lastName,
             doctor.userId.email,
@@ -81,24 +68,13 @@ export default function UserTable({ doctorList, deleteDoctor ,toggleActivatedSta
             doctor.department,
             doctor.userId.activated,
             doctor._id
-        )
-    })
-
-
-
-    React.useEffect(() => {
-
-    }, [])
-
-
-
-    // getDoctorByID(bookedAppointments[0].doctorId);
-    // getPatientByID(bookedAppointments[0].patientId);
+        );
+    });
 
     return (
         <Paper className={styles.paper} sx={{ width: '100%', overflow: 'hidden', boxShadow: "0 12px 24px rgba(0, 0, 0, 0.2) " }}>
-        <TableContainer className={styles.tableContainer}>
-            <Table className={styles.table02} stickyHeader aria-label="sticky table">
+            <TableContainer className={styles.tableContainer}>
+                <Table className={styles.table02} stickyHeader aria-label="sticky table">
                     <TableHead>
                         <TableRow>
                             {columns.map((column) => (
@@ -115,77 +91,53 @@ export default function UserTable({ doctorList, deleteDoctor ,toggleActivatedSta
                     <TableBody>
                         {rows
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                            .map((row) => {
-                                return (
-                                    <TableRow hover role="checkbox" tabIndex={-1} key={row.actionsID}>
-
-                                        {columns.map((column) => {
-                                            const value = row[column.id];
-                                             if (column.id === 'activated') {
-    return (
-        <TableCell key={column.id} align={column.align}>
-            <Switch
-                checked={value}
-                onChange={() => toggleActivatedStatus(row.actionsID, value)}
-                inputProps={{ 'aria-label': 'controlled' }}
-            />
-        </TableCell>
-    );
-}
-
-
-else  if (column.id === 'actionsID') {
-                                                return (
-                                                    <TableCell key={column.id} align={column.align}>
-                                                        <Tooltip title="Edit" placement="top" arrow>
-                                                            <EditIcon
-                                                                className="mx-2"
-                                                                style={{ color: '#ff6600', fontSize: 30 }}
-                                                                onClick={() => {
-                                                                    navigate(`/doctors/edit/${value}`);
-                                                                }}
-                                                            />
-                                                        </Tooltip>
-                                                        <Tooltip title="Delete" placement="top" arrow>
-                                                            <DeleteIcon
-                                                                className="mx-2"
-                                                                style={{ color: 'red', fontSize: 30 }}
-                                                                onClick={handleDeleteDialogueOpen}
-                                                            />
-                                                        </Tooltip>
-                                                        <ConfirmDeleteDialogue
-                                                            title="Confirm Delete"
-                                                            message="Are you sure you want to delete this record? This action cannot be undone."
-                                                            open={openConfirmDeleteDialogue}
-                                                            handleClose={handleDeleteDialogueClose}
-                                                            handleDelete={() => {
-                                                                deleteDoctor(value);
-                                                                handleDeleteDialogueClose();
+                            .map((row) => (
+                                <TableRow hover role="checkbox" tabIndex={-1} key={row.actionsID}>
+                                    {columns.map((column) => {
+                                        const value = row[column.id];
+                                        if (column.id === 'activated') {
+                                            return (
+                                                <TableCell key={column.id} align={column.align}>
+                                                    <Switch
+                                                        checked={value}
+                                                        onChange={() => toggleActivatedStatus(row.actionsID, value)}
+                                                        inputProps={{ 'aria-label': 'controlled' }}
+                                                    />
+                                                </TableCell>
+                                            );
+                                        } else if (column.id === 'actionsID') {
+                                            return (
+                                                <TableCell key={column.id} align={column.align}>
+                                                    <Tooltip title="Edit" placement="top" arrow>
+                                                        <EditIcon
+                                                            className="mx-2"
+                                                            style={{ color: '#ff6600', fontSize: 30 }}
+                                                            onClick={() => {
+                                                                navigate(`/doctors/edit/${value}`);
                                                             }}
                                                         />
-                                                    </TableCell>
-                                                );
-                                            }
-                                            else if (column.id == 'Role') {
-                                                return (
-                                                    <TableCell key={column.id} align={column.align}>
-                                                        <span className="custom-badge status-green">{value}</span>
-                                                    </TableCell>
-                                                )
-                                            }
-                                            else {
-                                                return (
-                                                    <TableCell key={column.id} align={column.align}>
-                                                        {column.format && typeof value === 'number'
-                                                            ? column.format(value)
-                                                            : value}
-                                                    </TableCell>
-                                                );
-                                            }
-                                        })}
-                                    </TableRow>
-                                );
-                            })}
+                                                    </Tooltip>
+                                                    <Tooltip title="Delete" placement="top" arrow>
+                                                        <DeleteIcon
+                                                            className="mx-2"
+                                                            style={{ color: 'red', fontSize: 30 }}
+                                                            onClick={() => handleDeleteDialogueOpen(value)}
+                                                        />
+                                                    </Tooltip>
+                                                </TableCell>
+                                            );
+                                        } else {
+                                            return (
+                                                <TableCell key={column.id} align={column.align}>
+                                                    {column.format && typeof value === 'number'
+                                                        ? column.format(value)
+                                                        : value}
+                                                </TableCell>
+                                            );
+                                        }
+                                    })}
+                                </TableRow>
+                            ))}
                     </TableBody>
                 </Table>
             </TableContainer>
@@ -202,6 +154,16 @@ else  if (column.id === 'actionsID') {
                         "marginTop": 'auto',
                         "marginBottom": 'auto'
                     }
+                }}
+            />
+            <ConfirmDeleteDialogue
+                title="Confirm Delete"
+                message="Are you sure you want to delete this record? This action cannot be undone."
+                open={openConfirmDeleteDialogue}
+                handleClose={handleDeleteDialogueClose}
+                handleDelete={() => {
+                    deleteDoctor(deleteDoctorId);
+                    handleDeleteDialogueClose();
                 }}
             />
         </Paper>

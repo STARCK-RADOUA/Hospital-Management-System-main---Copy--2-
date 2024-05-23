@@ -218,7 +218,7 @@ const deleteDoctor = async (req, res) => {
         const deleteddoctor = await Doctor.deleteOne({ _id: req.params.id });
 
         const deleteduser = await User.deleteOne({ _id: doctor.userId._id });
-        res.status(200).json(deleteddoctor);
+        res.status(200).json();
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
