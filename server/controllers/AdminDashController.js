@@ -55,27 +55,35 @@ const getAppointmentCount = async (req, res) => {
     }
 }
 
-const getPatientsTreatedCount = async (req, res) =>{
-    try{
-        // console.log("getPatientsTreatedCount")
-        let prescriptions = await Prescription.find({}).populate({
-            path: 'appointmentId',
-            populate: {
-                path: 'doctorId',
-                match: { _id: mongoose.Types.ObjectId(req.sender.doctorId) }
-              }        
-        }).then((prescriptions) => prescriptions.filter((pre => pre.appointmentId.doctorId != null)));
-        // console.log("prescriptions",prescriptions)
+const getPatientsTreatedCount = async (req, res) => {
+    try {
+        if (!req.sender || !req.sender.doctorId) {
+            return res.status(400).json({ errors: ["Doctor ID is missing"] });
+        }
+
+        const doctorId = mongoose.Types.ObjectId(req.sender.doctorId);
+
+        let prescriptions = await Prescription.find({})
+            .populate({
+                path: 'appointmentId',
+                populate: {
+                    path: 'doctorId',
+                    match: { _id: doctorId }
+                }
+            });
+
+        prescriptions = prescriptions.filter(pre => pre.appointmentId && pre.appointmentId.doctorId);
+
         res.json({
             "message": "success",
             'treatedPatients': prescriptions.length
         });
 
-    }
-    catch (error) {
+    } catch (error) {
+        console.error('Error fetching treated patients count:', error);
         res.status(500).json({ errors: [error.message] });
     }
-}
+};
  
 module.exports = {
     getUserCountByRole,

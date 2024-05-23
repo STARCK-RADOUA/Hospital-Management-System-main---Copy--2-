@@ -57,7 +57,7 @@ const loginUser = (req, res) => {
                             "userId": user._id
                         };
 
-                        const token = jwt.sign({ id: user._id, userType: user.userType }, process.env.SECRET_KEY, { expiresIn: "365d" });
+                        const token = jwt.sign({ id: user._id, userType: user.userType }, "ae2d8329d69cb40ef776f4d64c9b20ee67971cfd3df455f199d1f500712018fc", { expiresIn: "365d" });
                         res.json({ message: "success", user: currentUser, token: token });
                     }
                 });

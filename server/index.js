@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose.set("strictQuery", true);
 mongoose.connect(
-  "mongodb+srv://nabilelattar44:WJHhy0evM4ZtamqQ@cluster0.zfchr5c.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+  "mongodb://localhost:27017/hospital",
   { useNewUrlParser: true }
 );
 
