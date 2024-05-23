@@ -49,7 +49,6 @@ app.use(InvoiceRoute);
 app.use(ProfileRoute);
 app.use(DepartementRoute);
 
-// // API that get all patients
 
 app.use("/api/paypal", require("./routes/api/paypal"));
 
