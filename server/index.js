@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose.set("strictQuery", true);
 mongoose.connect(
-  "mongodb://localhost:27017/hospital",
+  "mongodb://localhost:27017/mybase",
   { useNewUrlParser: true }
 );
 
