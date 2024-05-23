@@ -4,6 +4,9 @@ const { getActivatedStatus, editActivatedStatus } = require("../controllers/User
 
 
 
+
+const crypto = require('crypto');
+
 const getDoctors = async (req, res) => {
     try {
         const searchdoctor = req.query.name ? new RegExp(req.query.name, 'i') : null;
@@ -86,6 +89,19 @@ const isDoctorValid = (newdoctor) => {
     }
 
 }
+const saveVerificationToken = async (userId, verificationToken) => {
+    await User.findOneAndUpdate({ _id: userId }, { "verificationToken": verificationToken });
+    return;
+}
+const generateVerificationToken = () => {
+    const token = crypto.randomBytes(64).toString('hex');
+    const expires = Date.now() + 3 * 60 * 60 * 1000; // 3 hours from now
+    let verificationToken = {
+        "token": token,
+        "expires": expires
+    };
+    return verificationToken;
+};
 
 const editDoctorActivatedStatus = async (req, res) => {
     try {
@@ -124,24 +140,50 @@ const saveDoctor = async (req, res) => {
                 userType: 'Doctor',
                 activated: true,
             },
+           
+
             (error, userDetails) => {
                 if (error) {
-                    res.status(400).json({ message: "error", errors: [error.message] });
+                    res.json({ message: "error", errors: [error.message] });
                 } else {
-                    newdoctor.userId = userDetails._id,
-                        Doctor.create({ newdoctor },
+                    let verificationToken = generateVerificationToken()
+                    saveVerificationToken(userDetails._id, verificationToken);
+
+                  
+                        Doctor.create(
+                            {
+                                userId: userDetails._id,
+                                firstName: newdoctor.firstName,
+                                lastName: newdoctor.lastName,
+                                email: newdoctor.email,
+                                username: newdoctor.email,
+                                department: newdoctor.department,
+                                phone: newdoctor.phone
+                            },
                             (error2, doctorDetails) => {
                                 if (error2) {
                                     User.deleteOne({ _id: userDetails });
-                                    res.status(400).json({ message: 'error', errors: [error2.message] });
+                                    res.json({ message: "error", errors: [error2.message] });
                                 } else {
-                                    res.status(201).json({ message: 'success' });
+                                   
+                                    res.json({ message: "success" });
                                 }
                             }
-                        );
-                }
-            }
-        );
+                        );}});
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
     }
 }
 

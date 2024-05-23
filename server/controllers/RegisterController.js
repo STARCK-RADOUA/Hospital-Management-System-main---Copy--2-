@@ -131,7 +131,7 @@ const signUp = (req, res) => {
                                     User.deleteOne({ _id: userDetails });
                                     res.json({ message: "error", errors: [error2.message] });
                                 } else {
-                                    sendVerificationEmail(userDetails.email, verificationToken.token);
+                                   
                                     res.json({ message: "success" });
                                 }
                             }
