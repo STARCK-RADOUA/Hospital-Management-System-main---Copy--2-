@@ -73,7 +73,7 @@ const generateVerificationToken = () => {
 };
 
 // Send an email with a verification link
-const sendVerificationEmail = async (email, token) => {
+const sendVerificationEmail = async (email, firstName, lastName, token) => {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -85,14 +85,28 @@ const sendVerificationEmail = async (email, token) => {
     const mailOptions = {
         from: "AL Rahma Health Center",
         to: email,
-        subject: 'Verify your email address',
-        text: `Please click the following link to verify your email address: http://localhost:3001/verify/${token}`,
-        html: `<p>Please click this link to verify your account:</p> <a href="http://localhost:3001/verify/${token}">Verify</a>`,
+        subject: 'Please Verify Your Email Address',
+        text: `Dear ${firstName} ${lastName},
+    
+We are pleased to have you as part of the AL Rahma Health Center community. To complete your registration, please verify your email address by clicking the link below:
+    
+http://localhost:3001/verify/${token}
+    
+If you did not create an account with us, please disregard this email.
+    
+Thank you,
+AL Rahma Health Center`,
+        html: `<p>Dear ${firstName} ${lastName},</p>
+               <p>We are pleased to have you as part of the AL Rahma Health Center community. To complete your registration, please verify your email address by clicking the link below:</p>
+               <p><a href="http://localhost:3001/verify/${token}">Verify your email address</a></p>
+               <p>If you did not create an account with us, please disregard this email.</p>
+               <p>Thank you,<br>AL Rahma Health Center</p>`,
     };
 
     let resp = await transporter.sendMail(mailOptions);
     return resp;
 };
+
 
 const signUp = (req, res) => {
     const newUser = req.body;
@@ -131,7 +145,6 @@ const signUp = (req, res) => {
                                     User.deleteOne({ _id: userDetails });
                                     res.json({ message: "error", errors: [error2.message] });
                                 } else {
-                                   
                                     res.json({ message: "success" });
                                 }
                             }
@@ -144,14 +157,14 @@ const signUp = (req, res) => {
                                 firstName: newUser.firstName,
                                 lastName: newUser.lastName,
                                 email: newUser.email,
-                                username: newUser.firstName+" "+newUser.lastName
+                                username: newUser.firstName + " " + newUser.lastName
                             },
                             (error2, patientDetails) => {
                                 if (error2) {
                                     User.deleteOne({ _id: userDetails });
                                     res.json({ message: "error", errors: [error2.message] });
                                 } else {
-                                    sendVerificationEmail(userDetails.email, verificationToken.token);
+                                    sendVerificationEmail(userDetails.email, newUser.firstName, newUser.lastName, verificationToken.token);
                                     res.json({ message: "success" });
                                 }
                             }
