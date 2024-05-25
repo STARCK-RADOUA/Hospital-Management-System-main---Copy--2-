@@ -129,7 +129,7 @@ export default function Sidebar({ open, handleDrawerClose, handleDrawerOpen }) {
                     <ListItemButton
                         selected={!selectedItem ? true : false}
                         component={NavLink}
-                        to="/"
+                        to="/dash"
                         style={{ textDecoration: 'none', color: 'white' }}
                         sx={{
                             minHeight: 48,
@@ -161,7 +161,7 @@ export default function Sidebar({ open, handleDrawerClose, handleDrawerOpen }) {
                 <ListItem key={"Appointments"} disablePadding sx={{ display: 'block' }}>
                     <ListItemButton
                         component={NavLink}
-                        to="/appointments"
+                        to="/dash/appointments"
                         style={{ textDecoration: 'none', color: 'white' }}
                         selected={selectedItem == "appointments" ? true : false}
                         sx={{
@@ -192,7 +192,7 @@ export default function Sidebar({ open, handleDrawerClose, handleDrawerOpen }) {
                 <ListItem key={"Prescriptions"} disablePadding sx={{ display: 'block' }}>
                     <ListItemButton
                         component={NavLink}
-                        to="/prescriptions"
+                        to="/dash/prescriptions"
                         style={{ textDecoration: 'none', color: 'white' }}
                         selected={selectedItem == "prescriptions" ? true : false}
                         sx={{
@@ -224,7 +224,7 @@ export default function Sidebar({ open, handleDrawerClose, handleDrawerOpen }) {
                     <ListItem key={"Departments"} disablePadding sx={{ display: 'block' }}>
                         <ListItemButton
                             component={NavLink}
-                            to="/departements"
+                            to="/dash/departements"
                             style={{ textDecoration: 'none', color: 'white' }}
                             selected={selectedItem == "departments" ? true : false}
                             sx={{
@@ -258,7 +258,7 @@ export default function Sidebar({ open, handleDrawerClose, handleDrawerOpen }) {
                 {(currentUser.userType == "Admin" || currentUser.userType == "Doctor") && <ListItem key={"Medicines"} disablePadding sx={{ display: 'block' }}>
                     <ListItemButton
                         component={NavLink}
-                        to="/medicines"
+                        to="/dash/medicines"
                         style={{ textDecoration: 'none', color: 'white' }}
                         selected={selectedItem == "medicines" ? true : false}
                         sx={{
@@ -290,7 +290,7 @@ export default function Sidebar({ open, handleDrawerClose, handleDrawerOpen }) {
                 {currentUser.userType == "Admin" && <ListItem key={"Users"} disablePadding sx={{ display: 'block' }}>
                     <ListItemButton
                         component={NavLink}
-                        to="/users"
+                        to="/dash/users"
                         style={{ textDecoration: 'none', color: 'white' }}
                         selected={selectedItem == "users" ? true : false}
                         sx={{
@@ -337,7 +337,7 @@ export default function Sidebar({ open, handleDrawerClose, handleDrawerOpen }) {
                 {currentUser.userType == "Admin" && <ListItem key={"Patients"} disablePadding sx={{ display: 'block' }}>
                     <ListItemButton
                         component={NavLink}
-                        to="/patients"
+                        to="/dash/patients"
                         style={{ textDecoration: 'none', color: 'white' }}
                         selected={selectedItem == "patients" ? true : false}
                         sx={{
@@ -368,7 +368,7 @@ export default function Sidebar({ open, handleDrawerClose, handleDrawerOpen }) {
                 {currentUser.userType == "Admin" && <ListItem key={"Doctors"} disablePadding sx={{ display: 'block' }}>
                     <ListItemButton
                         component={NavLink}
-                        to="/doctors"
+                        to="/dash/doctors"
                         style={{ textDecoration: 'none', color: 'white' }}
                         selected={selectedItem == "doctors" ? true : false}
                         sx={{
@@ -401,7 +401,7 @@ export default function Sidebar({ open, handleDrawerClose, handleDrawerOpen }) {
             <ListItem key={"Microphone"} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 component={NavLink}
-                        to="/microphone"
+                        to="/dash/microphone"
                         style={{ textDecoration: 'none', color: 'white' }}
                         selected={selectedItem == "microphone" ? true : false}
                         sx={{
@@ -433,7 +433,7 @@ export default function Sidebar({ open, handleDrawerClose, handleDrawerOpen }) {
             <ListItem key={"Meeting"} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 component={NavLink}
-                        to="/meeting"
+                        to="/dash/meeting"
                         style={{ textDecoration: 'none', color: 'white' }}
                         selected={selectedItem == "meeting" ? true : false}
                         sx={{
@@ -469,7 +469,7 @@ export default function Sidebar({ open, handleDrawerClose, handleDrawerOpen }) {
                 <ListItem key={"Profile"} disablePadding sx={{ display: 'block' }}>
                     <ListItemButton
                         component={NavLink}
-                        to="/profile"
+                        to="/dash/profile"
                         style={{ textDecoration: 'none', color: 'white' }}
                         selected={selectedItem == "profile" ? true : false}
                         sx={{

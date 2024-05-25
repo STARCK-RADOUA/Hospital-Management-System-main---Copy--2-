@@ -185,7 +185,7 @@ export default function PatientDashboard() {
 															className='my-3'
                                                             startIcon={<BookOnlineIcon />}
                                                             component={NavLink}
-															to="/appointments"
+															to="/dash/appointments"
                                                         >
                                                             Book Now
                                                         </Button>

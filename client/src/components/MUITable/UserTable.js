@@ -126,7 +126,7 @@ export default function UserTable({ userList, deleteUser }) {
                                                                 className="mx-2"
                                                                 style={{ color: '#ff6600', fontSize: 30 }}
                                                                 onClick={() => {
-                                                                    navigate(`/users/edit/${value}`);
+                                                                    navigate(`/dash/users/edit/${value}`);
                                                                 }}
                                                             />
                                                         </Tooltip>

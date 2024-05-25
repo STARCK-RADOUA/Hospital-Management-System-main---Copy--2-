@@ -54,7 +54,7 @@ function SignupPage() {
       .then(data => {
         let respMessage = data.message;
         if (respMessage === "success") {
-          navigate("/");
+          navigate("/login");
         }
         else {
           //TODO: display error message

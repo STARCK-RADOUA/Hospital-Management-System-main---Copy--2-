@@ -59,7 +59,7 @@ function AdminProfile() {
         password,
         confirmPassword
       });
-      navigate("/profile");
+      navigate("/dash/profile");
     } catch (error) {
       console.log(error.response.data.errors);
       //Display error message

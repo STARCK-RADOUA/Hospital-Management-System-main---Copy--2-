@@ -2,8 +2,8 @@ const Departement = require("../models/Departement");
 
 exports.createDepartement = async (req, res) => {
   try {
-    const { name, description } = req.body;
-    const newDepartement = await Departement.create({ name, description });
+    const { name, description , imageUrls } = req.body;
+    const newDepartement = await Departement.create({ name, description , imageUrls });
     res.status(201).json({ message: "success" });
   } catch (error) {
     res.status(400).json({ message: error.message });

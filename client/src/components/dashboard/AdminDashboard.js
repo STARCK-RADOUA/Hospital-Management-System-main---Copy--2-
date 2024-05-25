@@ -108,7 +108,7 @@ export default function AdminDashboard() {
         </div>
       </div>
       <div className={styles.statCardGrid}>
-        <Link to="/doctors">
+        <Link to="/dash/doctors">
           <div className={["", styles.statCard].join(" ")}>
             <div className={styles.dashWidget}>
               <span className={styles.dashWidgetBg1}>
@@ -124,7 +124,7 @@ export default function AdminDashboard() {
           </div>
         </Link>
 
-        <Link to="/patients">
+        <Link to="/dash/patients">
           <div className={["", styles.statCard].join(" ")}>
             <div className={styles.dashWidget}>
               <span className={styles.dashWidgetBg2}>
@@ -140,7 +140,7 @@ export default function AdminDashboard() {
           </div>
         </Link>
 
-        <Link to="/appointments">
+        <Link to="/dash/appointments">
           <div className={["", styles.statCard].join(" ")}>
             <div className={styles.dashWidget}>
               <span className={styles.dashWidgetBg3}>
@@ -158,7 +158,7 @@ export default function AdminDashboard() {
         </Link>
         
 
-        <Link to="/appointments" >
+        <Link to="/dash/appointments" >
         <div className={["", styles.statCard].join(" ")}>
           <div className={styles.dashWidget}>
             <span className={styles.dashWidgetBg4}>
@@ -186,7 +186,7 @@ export default function AdminDashboard() {
               <h4 className="card-title d-inline-block">
                 Upcoming Appointments
               </h4>{" "}
-              <NavLink to="/appointments" className="btn btn-primary float-end">
+              <NavLink to="/dash/appointments" className="btn btn-primary float-end">
                 View all
               </NavLink>
             </div>
@@ -272,7 +272,7 @@ export default function AdminDashboard() {
               </ul>
             </div>
             <div className="card-footer text-center bg-white">
-              <NavLink to="/doctors" className="text-muted">
+              <NavLink to="/dash/doctors" className="text-muted">
                 View all Doctors
               </NavLink>
             </div>

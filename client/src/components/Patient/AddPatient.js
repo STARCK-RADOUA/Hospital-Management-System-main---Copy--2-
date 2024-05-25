@@ -59,7 +59,7 @@ function AddPatient() {
         console.log(data);
         let respMessage = data.message;
         if (respMessage === "success") {
-          navigate("/patients");
+          navigate("/dash/patients");
         }
         else {
           //Display error message

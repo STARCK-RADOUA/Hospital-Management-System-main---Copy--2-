@@ -65,7 +65,7 @@ function DoctorList() {
             <div className="page-wrapper">
                 <div className="content">
                     <h4 className={styles.pageTitle}>Doctor</h4>
-                    <form action="/doctors" name="userFilter">
+                    <form action="/dash/doctors" name="userFilter">
                         <div className={styles.table}>
                             <div className="col-sm-4 col-md-4">
                                 <div className="form-floating">
@@ -77,7 +77,7 @@ function DoctorList() {
                                 <button type="submit" className="btn btn-primary btn-block">Search</button>
                             </div>
                             <div className="col-sm-4 col-md-4">
-                                <Link to="/doctors/add" className="btn btn-primary float-right btn-rounded">
+                                <Link to="/dash/doctors/add" className="btn btn-primary float-right btn-rounded">
                                     <i className="fa fa-plus"></i> Add Doctor
                                 </Link>
                             </div>

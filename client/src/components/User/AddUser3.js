@@ -56,7 +56,7 @@ function AddUser() {
         console.log(data);
         let respMessage = data.message;
         if (respMessage === "success") {
-          navigate("/users");
+          navigate("/dash/users");
         }
         else {
           //Display error message

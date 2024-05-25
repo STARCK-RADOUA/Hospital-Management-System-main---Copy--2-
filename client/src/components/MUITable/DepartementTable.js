@@ -92,7 +92,7 @@ export default function DepartementTable({ departementList, deleteDepartement })
                                                                 className="mx-2"
                                                                 style={{ color: '#ff6600', fontSize: 30 }}
                                                                 onClick={() => {
-                                                                    navigate(`/departements/edit/${value}`);
+                                                                    navigate(`/dash/departements/edit/${value}`);
                                                                 }}
                                                             />
                                                         </Tooltip>

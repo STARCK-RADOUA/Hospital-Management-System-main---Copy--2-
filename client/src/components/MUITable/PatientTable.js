@@ -127,7 +127,7 @@ export default function UserTable({ patientList, deletePatient }) {
                                                                 className="mx-2"
                                                                 style={{ color: '#ff6600', fontSize: 30 }}
                                                                 onClick={() => {
-                                                                    navigate(`/patients/edit/${value}`);
+                                                                    navigate(`/dash/patients/edit/${value}`);
                                                                 }}
                                                             />
                                                         </Tooltip>

@@ -49,7 +49,7 @@ function Addmedicine() {
         console.log(data);
         let respMessage = data.message;
         if (respMessage === "success") {
-          navigate("/medicines");
+          navigate("/dash/medicines");
         }
         else {
           //Display error message

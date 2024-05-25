@@ -68,7 +68,7 @@ function EditPatient() {
         dob,
         userId
       });
-      navigate("/patients");
+      navigate("/dash/patients");
     } catch (error) {
       console.log(error.response.data.errors);
       //Display error message

@@ -42,7 +42,7 @@ const Success = () => {
               {Object.keys(session).length === 0 ? (
                 <div></div>
               ) : (
-                <Navigate to="/prescriptions" />
+                <Navigate to="/dash/prescriptions" />
               )}
             </div>
           </div>

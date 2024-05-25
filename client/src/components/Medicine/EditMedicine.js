@@ -46,7 +46,7 @@ function Editmedicine() {
         description,
         price
       });
-      navigate("/medicines");
+      navigate("/dash/medicines");
     } catch (error) {
       //console.log(error.response.data.errors);
       //Display error message

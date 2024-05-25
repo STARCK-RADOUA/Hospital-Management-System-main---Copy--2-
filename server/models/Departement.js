@@ -1,18 +1,18 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-
 const DepartementSchema = new Schema({
   name: {
-    type: String
+    type: String,
   },
   description: {
-    type: String
-  }
+    type: String,
+  },
+  imageUrls: {
+    type: Array,
+    required: false,
+  },
 });
-
-
-
 
 const Departement = mongoose.model("Departement", DepartementSchema);
 

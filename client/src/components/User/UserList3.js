@@ -101,7 +101,7 @@ function UserList() {
                                 
                             </div> 
                             <div >
-                            <Link to="/users/add" className="btn btn-primary float-right btn-rounded">
+                            <Link to="/dash/users/add" className="btn btn-primary float-right btn-rounded">
                                 <i className="fa fa-plus"></i> Add User
                             </Link>
                                 

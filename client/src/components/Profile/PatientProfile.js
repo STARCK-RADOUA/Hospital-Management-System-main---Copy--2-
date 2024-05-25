@@ -73,7 +73,7 @@ function PatientProfile() {
         dob,
         userId
       });
-      navigate("/profile");
+      navigate("/dash/profile");
     } catch (error) {
       console.log(error.response.data.errors);
       //Display error message

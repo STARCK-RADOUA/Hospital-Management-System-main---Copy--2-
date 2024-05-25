@@ -37,10 +37,10 @@ const Header = ({ open, handleDrawerOpen, headerTitle }) => {
   const { isLoggedIn, currentUser, signOutUser } = useContext(UserContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const redirectToHome = () => {
-    navigate("/");
+    navigate("/dash");
   }
   const redirectToProfile = () => {
-    navigate("/profile");
+    navigate("/dash/profile");
   }
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);

@@ -85,7 +85,7 @@ export default function UserTable({ medicineList, deleteMedicine }) {
                     <Tooltip title="Edit" placement="top" arrow>
                       <EditIcon
                         style={{ color: '#ff6600', fontSize: 30 }}
-                        onClick={() => navigate(`/medicines/edit/${row.actionsID}`)}
+                        onClick={() => navigate(`/dash/medicines/edit/${row.actionsID}`)}
                       />
                     </Tooltip>
                     <Tooltip title="Delete" placement="top" arrow>
@@ -133,7 +133,7 @@ export default function UserTable({ medicineList, deleteMedicine }) {
                             <EditIcon
                               className="mx-2"
                               style={{ color: '#ff6600', fontSize: 30 }}
-                              onClick={() => navigate(`/medicines/edit/${value}`)}
+                              onClick={() => navigate(`/dash/medicines/edit/${value}`)}
                             />
                           </Tooltip>
                           <Tooltip title="Delete" placement="top" arrow>

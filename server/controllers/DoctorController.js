@@ -158,7 +158,8 @@ const saveDoctor = async (req, res) => {
                                 email: newdoctor.email,
                                 username: newdoctor.email,
                                 department: newdoctor.department,
-                                phone: newdoctor.phone
+                                phone: newdoctor.phone ,
+                                imageUrls : newdoctor.imageUrls ,
                             },
                             (error2, doctorDetails) => {
                                 if (error2) {

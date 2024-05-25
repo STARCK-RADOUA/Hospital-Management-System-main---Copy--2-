@@ -68,7 +68,7 @@ function EditUser() {
             authorization: `Bearer ${localStorage.getItem("token")}`
           }
         });
-      navigate("/users");
+      navigate("/dash/users");
     } catch (error) {
       console.log(error);
       //Display error message

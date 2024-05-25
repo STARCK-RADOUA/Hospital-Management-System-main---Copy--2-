@@ -42,7 +42,7 @@ function EditDepartement() {
         name,
         description,
       });
-      navigate("/departements");
+      navigate("/dash/departements");
     } catch (error) {
       console.log(error.response.data.errors);
       //Display error message

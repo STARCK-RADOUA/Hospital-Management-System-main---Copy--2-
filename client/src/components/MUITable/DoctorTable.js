@@ -113,7 +113,7 @@ export default function UserTable({ doctorList, deleteDoctor, toggleActivatedSta
                                                             className="mx-2"
                                                             style={{ color: '#ff6600', fontSize: 30 }}
                                                             onClick={() => {
-                                                                navigate(`/doctors/edit/${value}`);
+                                                                navigate(`/dash/doctors/edit/${value}`);
                                                             }}
                                                         />
                                                     </Tooltip>

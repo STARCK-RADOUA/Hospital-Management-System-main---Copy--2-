@@ -64,7 +64,6 @@ export default function PrecriptionTable({ prescriptionList }) {
     // const [rows, setRows] = React.useState([]);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
-    const navigate = useNavigate();
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);

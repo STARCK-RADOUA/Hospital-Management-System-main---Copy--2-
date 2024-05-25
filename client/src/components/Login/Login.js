@@ -47,7 +47,7 @@ function Login() {
                 let user = data.user;
                 if (respMessage === "success") {
                     signInUser(user, data.token);
-                    navigate("/");
+                    navigate("/dash");
                 }
                 else {
                     //TODO: display error message
@@ -125,7 +125,7 @@ let isFacebook = false
             let user = data.user;
             if (respMessage === "success") {
                 signInUser(user, data.token);
-                navigate("/");
+                navigate("/dash");
             }
             else {
                 //TODO: display error message
@@ -175,7 +175,7 @@ let isFacebook = false
                 let user = data.user;
                 if (respMessage === "success") {
                     signInUser(user, data.token);
-                    navigate("/");
+                    navigate("/dash");
                 }
                 else {
                     //TODO: display error message

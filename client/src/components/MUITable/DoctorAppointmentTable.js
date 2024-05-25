@@ -211,7 +211,7 @@ export default function DoctorAppointmentTable({ bookedAppointments, deleteBooke
                                                     <TableCell key={column.id} align={column.align}>
                                                         {column.format && typeof value === 'number'
                                                             ? column.format(value)
-                                                            : <NavLink to={`/patient/history/${row["patientID"]}`} className="text-muted"> {value} </NavLink>}
+                                                            : <NavLink to={`/dash/patient/history/${row["patientID"]}`} className="text-muted"> {value} </NavLink>}
                                                     </TableCell>
                                                 )
                                                 

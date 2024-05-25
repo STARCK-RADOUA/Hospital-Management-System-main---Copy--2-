@@ -75,7 +75,7 @@ function DepartementList() {
               
               <div className="col-sm-4 col-md-4">
                 <Link
-                  to="/departements/add"
+                  to="/dash/departements/add"
                   className="btn btn-primary float-right btn-rounded"
                 >
                   <i className="fa fa-plus"></i> Add Departement

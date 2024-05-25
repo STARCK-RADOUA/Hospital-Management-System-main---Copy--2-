@@ -66,7 +66,7 @@ function Editdoctor() {
         department,
         userId
       });
-      navigate("/doctors");
+      navigate("/dash/doctors");
     } catch (error) {
 
       console.log(error);

@@ -13,6 +13,8 @@ import { Outlet } from "react-router-dom";
 import { UserContext } from '../../Context/UserContext'
 import React, { useContext, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+import { HomeIcon } from "@heroicons/react/outline";
+import styless from '../../home.module.css';
 
 
 
@@ -56,11 +58,14 @@ export default function Dashboard() {
 
 
     return (
-        <Box sx={{ display: 'flex' }}>
+        <div className={styless.container}>
+             <Box  sx={{ display: 'flex' }}>
             <CssBaseline />
             <Header open={open} handleDrawerOpen={handleDrawerOpen} headerTitle="Dashboard" />
             <Sidebar open={open} handleDrawerClose={handleDrawerClose} handleDrawerOpen={handleDrawerOpen} />
             <Outlet />
         </Box>
+        </div>
+       
     );
 }

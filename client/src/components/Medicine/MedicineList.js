@@ -78,8 +78,8 @@ function MedicineList() {
                                 <button type="submit" className="btn btn-primary btn-block"> Search </button>
                             </div>
                             <div className="col-sm-4 col-md-4">
-                            <Link to="/medicines/add" className="btn btn-primary float-right btn-rounded">
-                                <i className="fa fa-plus"></i> Add Medicine
+                            <Link to="/dash/medicines/add" className="btn btn-primary float-right btn-rounded">
+                                <i className="fa fa-plus"></i> Addd Medicine
                             </Link>
                         </div>
                         </div>

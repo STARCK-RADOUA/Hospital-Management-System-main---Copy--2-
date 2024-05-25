@@ -16,6 +16,10 @@ const DoctorSchema = new Schema({
   },
   address: {
     type: String
+  } ,
+  imageUrls: {
+    type: Array,
+    required: false,
   }
 });
 

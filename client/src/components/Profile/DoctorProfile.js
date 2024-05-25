@@ -68,7 +68,7 @@ function DoctorProfile() {
                 department,
                 userId
             });
-            navigate("/profile");
+            navigate("/dash/profile");
         } catch (error) {
 
             console.log(error);

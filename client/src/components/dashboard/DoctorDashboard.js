@@ -170,7 +170,7 @@ export default function DoctorDashboard() {
 				<div className="col-12 col-lg-8 col-xl-8">
 					<div className="card appointment-panel">
 						<div className="card-header">
-							<h4 className="card-title d-inline-block">Upcoming Appointments</h4> <NavLink to="/appointments" className="btn btn-primary float-end">View all</NavLink>
+							<h4 className="card-title d-inline-block">Upcoming Appointments</h4> <NavLink to="/dash/appointments" className="btn btn-primary float-end">View all</NavLink>
 						</div>
 						<div className="card-body">
 							<div className="table-responsive">
@@ -188,8 +188,8 @@ export default function DoctorDashboard() {
 											return (
 												<tr>
 													<td className={styles.appointmentTableTd}>
-														<NavLink className="avatar" to={`/patient/history/${apt?.patientId?._id}`}>{apt?.patientId?.userId?.firstName?.charAt(0)}</NavLink>
-														<h2 className='ps-3'><NavLink to={`/patient/history/${apt?.patientId?._id}`}>{apt?.patientId?.userId?.firstName} {apt?.patientId?.userId?.lastName} <span>{apt?.patientId?.address}</span></NavLink></h2>
+														<NavLink className="avatar" to={`/dash/patient/history/${apt?.patientId?._id}`}>{apt?.patientId?.userId?.firstName?.charAt(0)}</NavLink>
+														<h2 className='ps-3'><NavLink to={`/dash/patient/history/${apt?.patientId?._id}`}>{apt?.patientId?.userId?.firstName} {apt?.patientId?.userId?.lastName} <span>{apt?.patientId?.address}</span></NavLink></h2>
 													</td>
 													<td>
 														<h5 className="time-title p-0">Appointment With</h5>
@@ -248,7 +248,7 @@ export default function DoctorDashboard() {
 							</ul>
 						</div>
 						<div class="card-footer text-center bg-white">
-							<NavLink to="/prescriptions" className="text-muted">View all </NavLink>
+							<NavLink to="/dash/prescriptions" className="text-muted">View all </NavLink>
 						</div>
 					</div>
 				</div>
