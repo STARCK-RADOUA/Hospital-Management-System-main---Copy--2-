@@ -46,7 +46,7 @@ import DepartementList from "./components/Departement/DepartementList";
 import AddDepartement from "./components/Departement/AddDepartement";
 import EditDepartement from "./components/Departement/EditDepartement";
 import LandingPage from "./components/Home/LandingPage.jsx";
-import Services from "./components/Home/Services.jsx";
+import Services from "./components/Home/OurDoctors.jsx";
 import About from "./components/Home/About.jsx";
 import Contact from "./components/Home/Contact.jsx";
 import Home from "./components/Home/Home.jsx";
