@@ -1,5 +1,7 @@
 .page-content {
-    margin-top: 80px; /* Adjust based on the height of your navbar */
+    margin-top: 80px;
+     /* Adjust based on the height of your navbar */
+     
   }
 
 
@@ -9,7 +11,10 @@
     background-color: #f94d2c;
     top: 0;
   }
-  
+  #login{
+   
+    width: 70%;
+  }
   #box-three h1 {
     margin: 0px;
 
@@ -25,5 +30,23 @@
   
 
   .swip{
-    max-width: 70%;
+    
+    max-width: 50%;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
+  
+    border-top-left-radius: 32px;
+	border-top-right-radius: 32px;
+	border-bottom-right-radius: 32px;
+	border-bottom-left-radius: 32px;
+  }
+  #image{
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
+  
+    border-top-left-radius: 32px;
+	border-top-right-radius: 32px;
+	border-bottom-right-radius: 32px;
+	border-bottom-left-radius: 32px;
+  }
+  #text{
+    text-align: start;
   }
