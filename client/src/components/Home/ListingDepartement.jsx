@@ -55,7 +55,7 @@ export default function Listing() {
         <p className="text-center my-7 text-2xl">Something went wrong!</p>
       )}
       {listing && !loading && !error && (
-        <div className="flex flex-row gap-3">
+        <div className="flex flex-row gap-2">
           <Swiper className="swip flex-1" navigation>
             {listing.imageUrls.map((url) => (
               <SwiperSlide key={url}>

@@ -45,10 +45,10 @@ function About() {
 
    
 
-    <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+    <div id='cardsload' className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="grid gap-5 row-gap-5 mb-8 lg:grid-cols-4 sm:grid-cols-2">
         {data.map((card, index) => (
-          <Link key={index} to={`/departement/${card._id}`} aria-label="View Item" className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2">
+          <Link  id='cardslool' key={index} to={`/departement/${card._id}`} aria-label="View Item" className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2">
             <div className="flex flex-col h-full">
               <img src={card.imageUrls[0]} className="object-cover w-full h-48" alt="" />
               <div className="flex-grow border border-t-0 rounded-b">
