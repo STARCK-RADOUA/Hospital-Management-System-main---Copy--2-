@@ -1,0 +1,29 @@
+.page-content {
+    margin-top: 80px; /* Adjust based on the height of your navbar */
+  }
+
+
+  #box-three {
+    width: 100%;
+    height: 70px;
+    background-color: #f94d2c;
+    top: 0;
+  }
+  
+  #box-three h1 {
+    margin: 0px;
+
+    top: 50%;
+    transform: translate(0, -50%);
+    text-align: center;
+    color: #fff;
+  }
+  
+  .btn {
+    background-color: #f94d2c;
+  }
+  
+
+  .swip{
+    max-width: 70%;
+  }

@@ -50,6 +50,8 @@ import Services from "./components/Home/Services.jsx";
 import About from "./components/Home/About.jsx";
 import Contact from "./components/Home/Contact.jsx";
 import Home from "./components/Home/Home.jsx";
+import ListingDepartement from "./components/Home/ListingDepartement.jsx";
+
 
 const NotFound = () => (
   <h2 style={{ margin: "70px" }}>This Path is not available</h2>
@@ -79,6 +81,8 @@ export default function PageRoutes() {
           <Route path="/about" element={<About />} /> {/* Child route for exact path "/" */}
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/departement/:id" element={<ListingDepartement />} />
+
         </Route>
        <Route path="/dash" element={<Dashboard />}>
         <Route
