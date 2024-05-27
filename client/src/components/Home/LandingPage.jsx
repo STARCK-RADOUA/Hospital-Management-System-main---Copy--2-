@@ -6,7 +6,7 @@ import Footer from './Footer';
 import './style.css'
 const LandingPage = () => {
   return (
-    <div>
+    <div id="container">
       <Navbar />
       <Outlet/>
      <Footer/>  
