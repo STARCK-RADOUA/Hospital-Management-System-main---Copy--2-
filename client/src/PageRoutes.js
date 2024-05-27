@@ -79,7 +79,7 @@ export default function PageRoutes() {
          <Route path="/" element={<LandingPage/>}>
           <Route index element={<Home />} />
           <Route path="/about" element={<About />} /> {/* Child route for exact path "/" */}
-          <Route path="/services" element={<Services />} />
+          <Route path="/ourdoctors" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/departement/:id" element={<ListingDepartement />} />
 
