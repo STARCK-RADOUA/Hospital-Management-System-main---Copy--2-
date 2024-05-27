@@ -43,18 +43,19 @@ const Contact = () => {
   };
 
   return (
-    <div className="page-content flex items-center justify-center h-screen">
-      <div className=" w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+    <div className="page-content flex items-center justify-center  bg-gray-100">
+      <div className="w-full max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow sm:p-8 md:p-10 dark:bg-gray-800 dark:border-gray-700">
+        <h2 className="text-2xl font-bold text-center text-gray-900  mb-4">Contact Us</h2>
         <form className="space-y-6" onSubmit={handleSubmit}>
-          <h5 className="text-xl font-medium text-gray-900 dark:text-white">
+          <h5 className="text-xl font-medium text-gray-900 ">
             Send us a Message
           </h5>
           <div>
             <label
               htmlFor="email"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 "
             >
-              Mail
+              Email
             </label>
             <input
               type="email"
@@ -63,7 +64,7 @@ const Contact = () => {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-500 dark:placeholder-gray-400"
               placeholder="name@company.com"
               required
             />
@@ -71,18 +72,18 @@ const Contact = () => {
           <div>
             <label
               htmlFor="tx"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 "
             >
               Telephone
             </label>
             <input
-            style={{color : "black"}}
+              style={{color : "black"}}
               type="text"
               name="tx"
               id="tx"
               value={tx}
               onChange={(e) => setTx(e.target.value)}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              className="bg-white bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
               placeholder="0XXXXXXXXXX"
               required
             />
@@ -90,19 +91,19 @@ const Contact = () => {
           <div>
             <label
               htmlFor="message"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 "
             >
               Message
             </label>
-
             <textarea
-              style={{color : "white"}}
+              style={{color : "black"}}
               id="message"
               rows="4"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="block p-2.5 w-full text-sm text-white bg-gray-900 bg-gray-50 rounded-lg border "
               placeholder="Ecrire votre message"
+              required
             ></textarea>
           </div>
           <div className="py-4">
@@ -111,13 +112,8 @@ const Contact = () => {
               className="flex items-center text-blue-500 hover:underline"
             >
               <IoLogoWhatsapp className="mr-2" />
-              <span>ou contactez nous via WhatsApp</span>
+              <span>Ou contactez-nous via WhatsApp</span>
             </a>
-          </div>
-          <div className="flex items-start">
-            <div className="flex items-start">
-              <div className="flex items-center h-5"></div>
-            </div>
           </div>
           <button
             type="submit"
@@ -127,9 +123,7 @@ const Contact = () => {
             {loading ? "Envoi en cours..." : "Envoyer message"}
           </button>
           {error && <p className="text-red-500">{error}</p>}
-          {success && (
-            <p className="text-green-500">Email sent successfully!</p>
-          )}
+          {success && <p className="text-green-500">Email sent successfully!</p>}
         </form>
       </div>
     </div>
