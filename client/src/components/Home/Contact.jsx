@@ -43,7 +43,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="page-content flex items-center justify-center  bg-gray-100">
+    <div className="page-content flex items-center justify-center ">
       <div className="w-full max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow sm:p-8 md:p-10 dark:bg-gray-800 dark:border-gray-700">
         <h2 className="text-2xl font-bold text-center text-gray-900  mb-4">Contact Us</h2>
         <form className="space-y-6" onSubmit={handleSubmit}>
@@ -106,15 +106,7 @@ const Contact = () => {
               required
             ></textarea>
           </div>
-          <div className="py-4">
-            <a
-              href="https://wa.me/212622582379"
-              className="flex items-center text-blue-500 hover:underline"
-            >
-              <IoLogoWhatsapp className="mr-2" />
-              <span>Ou contactez-nous via WhatsApp</span>
-            </a>
-          </div>
+         
           <button
             type="submit"
             disabled={loading}
