@@ -9,7 +9,7 @@ const LandingPage = () => {
     <div>
       <Navbar />
       <Outlet/>
-     
+     <Footer/>  
     </div>
   );
 };
