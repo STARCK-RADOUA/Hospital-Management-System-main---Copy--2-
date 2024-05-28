@@ -53,24 +53,27 @@ export default function AdminDashboard() {
   };
 
   const getBookedSlots = async () => {
-    let response = await axios.post(
-      `http://localhost:3001/appointments`,
-      {
-        isTimeSlotAvailable: false,
-        appDate: moment(new Date()).format("YYYY-MM-DD"),
-      },
-      {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      }
-    );
-    if (response.data.message == "success") {
-      let aptms = response.data.appointments;
-      console.log("aptms", aptms);
-      setBookedAppointments(aptms);
-    }
-  };
+		// console.log(moment(new Date()).format('YYYY-MM-DD'))
+		let response = await axios.post(`http://localhost:3001/appointments`,
+			{
+				'isTimeSlotAvailable': false,
+				'appDate': moment(new Date()).format('YYYY-MM-DD')
+			},
+			{
+				headers: {
+					authorization: `Bearer ${localStorage.getItem("token")}`
+				}
+			}
+		);
+		if (response.data.message == "success") {
+
+			let aptms = response.data.appointments;
+			console.log("aptms", aptms);
+
+			setBookedAppointments(aptms);
+			// console.log(aptms);
+
+		}};
 
   const getdoctors = async () => {
     const response = await axios.get("http://localhost:3001/doctors");

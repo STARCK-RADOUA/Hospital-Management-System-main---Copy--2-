@@ -7,24 +7,24 @@ const Home = () => {
     <>
       <Container className=" page-content flex flex-wrap ">
         <div className="flex items-center w-full lg:w-1/2">
-          <div className="max-w-2xl mb-8">
-            <h1 style={{color : "black"}} className="text-3xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
-            AL RAHMA IS YOUR MOST 
+          <div id = "home" >
+            <h1 style={{color : "black", textAlign : "center", marginTop : "7%"}} className="text-3xl font-bold leading-snug tracking-tight text-gray-800 lg:text-3xl lg:leading-tight xl:text-5xl ">
+            <h1 className="text-slate-700 font-bold text-3xl lg:text-6xl">
+            Welcome to    <span className="text-slate-500">Al Rahma</span>Hospital
+          <br />
+         
+        </h1>
             </h1>
-            <h1  style={{color : "black"}} className="text-3xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
-             TRUSTED HEALTH PARTNER
-            </h1>
-            <p className="py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl dark:text-gray-300">
-              Nextly is a free landing page & marketing website
-              template for startups and indie projects. Its built with
-              Next.js & TailwindCSS. And its completely open-source.
+        
+            <p id="homep" className="py-5 text-xl leading-normal lg:text-xl xl:text-xl ">
+            Discover exceptional healthcare at Al Rahma Hospital, where expertise meets empathy. Our dedicated team of medical professionals and state-of-the-art facilities ensure your well-being is our top priority. Whether it's a routine check-up or specialized treatment, we're here to provide compassionate care tailored to your needs. Experience the difference at Al Rahma Hospital, where quality meets compassion, and your health is in good hands.
             </p>
 
-            <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
+            <div id = "login" className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
               <Link id = "login" to="/login"
                
                
-                className="px-8 py-4 text-lg font-medium text-center text-white bg-indigo-600 rounded-md ">
+                className="px-8 py-4 text-lg font-medium text-center  bg-indigo-600 rounded-md ">
                 Sign up 
               </Link>
               
