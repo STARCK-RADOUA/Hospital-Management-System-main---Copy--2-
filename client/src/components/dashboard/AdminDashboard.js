@@ -185,26 +185,21 @@ export default function AdminDashboard() {
       <div className="row ">
         <div className="col-12 col-lg-8 col-xl-8">
           <div className="card appointment-panel">
-            <div className="card-header">
-              <h4 className="card-title d-inline-block">
-                Upcoming Appointments
-              </h4>{" "}
-              <NavLink to="/dash/appointments" className="btn btn-primary float-end">
-                View all
-              </NavLink>
-            </div>
-            <div className="card-body">
-              <div className="table-responsive">
-                <table className="table mb-0">
-                  <thead className="d-none">
-                    <tr>
-                      <th>Patient Name</th>
-                      <th>Doctor Name</th>
-                      <th>Timing</th>
-                      <th className="text-right">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
+          <div className="card-header">
+							<h4 className="card-title d-inline-block">Upcoming Appointments</h4> <NavLink to="/dash/appointments" className="btn btn-primary float-end">View all</NavLink>
+						</div>
+						<div className="card-body">
+							<div className="table-responsive">
+								<table className="table mb-0">
+									<thead className="d-none">
+										<tr>
+											<th>Patient Name</th>
+											<th>Doctor Name</th>
+											<th>Timing</th>
+											<th className="text-right">Status</th>
+										</tr>
+									</thead>
+									<tbody>
                     {bookedAppointments.map((apt, index) => {
                       return (
                         <tr key={index}>

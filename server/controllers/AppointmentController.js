@@ -54,24 +54,19 @@ const getAppointments = async (req, res) => {
         } else if (isTimeSlotAvailable == false) {
             // console.log("here 2")
             if (req.sender.userType == "Admin") {
-                let query = {
+                appointments = await Appointment.find({
                     'isTimeSlotAvailable': false,
-                   
+                    'completed': false,
+                    
                     'appointmentDate': appointmentDate,
-                     "appointmentType": appointmentType,
-                    "completed": false
-                }
-                if (docID) {
-                    query.doctorId = mongoose.Types.ObjectId(docID)
-                }
-                // appointments = await Appointment.find(query).lean();
-                appointments = await Appointment.find(query)
-                    .populate({
-                        path: 'doctorId',
-                        populate: {
-                            path: 'userId'
-                        }
-                    })
+                   
+                    
+                }).populate({
+                    path: 'doctorId',
+                    populate: {
+                        path: 'userId'
+                    }
+                })
                     .populate({
                         path: 'patientId',
                         populate: {
@@ -127,6 +122,7 @@ const getAppointments = async (req, res) => {
                         }
                     });
             }
+           
              console.log(appointments)
         }
         console.log("appointmentDate",appointmentDate);
