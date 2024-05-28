@@ -110,15 +110,15 @@ app.post("/api/message", async (req, res) => {
     let transporter = nodemailer.createTransport({
       service: "Gmail",
       auth: {
-        user: "saadi.0mehdi@gmail.com", // Replace with your Gmail email address
-        pass: "omih wcwo pamu mkjo", // Replace with your Gmail account password or app-specific password
+        user: "alrahma.hopitale@gmail.com", // Replace with your Gmail email address
+        pass: "jgrstcabltioqzxg", // Replace with your Gmail account password or app-specific password
       },
     });
 
     const mailOptions = {
       from: "",
-      to: "saadi.0mehdi@gmail.com",
-      subject: "New Message from Arrahmawebsite",
+      to: "alrahma.hopitale@gmail.com",
+      subject: "New Message from Al Rahma website",
       html: htmlContent,
     };
 
