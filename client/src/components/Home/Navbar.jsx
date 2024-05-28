@@ -5,9 +5,10 @@ import logo from "./logo.png"
 const Header = () => {
     let Links =[
       {name:"Home",link:'/'},
-      {name:"About Departement",link:'/about'},
-      {name:"Contact us",link:'/contact'},
-      {name:"Our Doctors",link:'/ourdoctors'}
+      {name:"Our Doctors",link:'/ourdoctors'},
+      {name:"Departement",link:'/about'},
+      {name:"Contact",link:'/contact'},
+      
     ];
     let [open,setOpen]=useState(false);
     const [searchTerm, setSearchTerm] = useState('');
