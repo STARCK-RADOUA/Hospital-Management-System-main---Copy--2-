@@ -148,9 +148,9 @@ export default function PageRoutes() {
           <Route
             path="add"
             element={
-              <ProtectedAdminRoute>
+              
                 <AddMedicine />
-              </ProtectedAdminRoute>
+            
             }
           />
           <Route
