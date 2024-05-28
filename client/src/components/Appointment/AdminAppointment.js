@@ -456,8 +456,7 @@ function AdminAppointment() {
                             {/* </div> */}
                         </div>
 
-                        <input type='submit' className='btn btn-primary float-right btn-rounded py-2 px-4' value='Create' />
-                    </form>
+                        <input type='submit' style={{marginRight: "44%" , backgroundColor : "red"}} className='btn  btn-primary float-right btn-rounded py-2 px-4 mr-2' value='Create' />                    </form>
 
                 </div>
 
