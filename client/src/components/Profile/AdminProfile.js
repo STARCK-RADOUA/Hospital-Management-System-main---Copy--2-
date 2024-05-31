@@ -123,17 +123,17 @@ function AdminProfile() {
                       </div>
                     </div>
                     <div className="col-sm-6">
-                      <div className="form-group">
-                        <label>Password</label>
-                        <input name="password" className="form-control" type="password" value={""} onChange={(event) => setPassword(event.target.value)} />
-                      </div>
-                    </div>
-                    <div className="col-sm-6">
-                      <div className="form-group">
-                        <label>Confirm Password</label>
-                        <input name="confirmPassword" className="form-control" type="password" value={""} onChange={(event) => setConfirmPassword(event.target.value)} />
-                      </div>
-                    </div>
+                                            <div className="form-group">
+                                                <label>Password</label>
+                                                <input name="password" className="form-control" type="password" required value={""} onChange={(event) => setPassword(event.target.value)} />
+                                            </div>
+                                        </div>
+                                        <div className="col-sm-6">
+                                            <div className="form-group">
+                                                <label>Confirm Password</label>
+                                                <input name="confirmPassword" className="form-control" type="password" required value={""} onChange={(event) => setConfirmPassword(event.target.value)} />
+                                            </div>
+                                        </div>
                   </div>
                   <div className="m-t-20 text-center">
                     <button type="submit" className="btn btn-primary submit-btn">Update Profile</button>

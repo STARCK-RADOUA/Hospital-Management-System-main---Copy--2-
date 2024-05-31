@@ -1,0 +1,132 @@
+@startuml
+
+actor Admin
+actor Doctor
+actor Patient
+
+usecase "Gérer les administrateurs" as UC1
+usecase "Ajouter un administrateur" as UC1_1
+usecase "Modifier un administrateur" as UC1_2
+usecase "Supprimer un administrateur" as UC1_3
+
+usecase "Gérer les médecins" as UC2
+usecase "Ajouter un médecin" as UC2_1
+usecase "Modifier un médecin" as UC2_2
+usecase "Supprimer un médecin" as UC2_3
+usecase "Activer/désactiver un médecin" as UC2_4
+usecase "Consulter les détails des médecins" as UC2_5
+
+usecase "Gérer les réceptionnistes" as UC3
+usecase "Ajouter un réceptionniste" as UC3_1
+usecase "Modifier un réceptionniste" as UC3_2
+usecase "Supprimer un réceptionniste" as UC3_3
+
+usecase "Gérer les patients" as UC4
+usecase "Ajouter un patient" as UC4_1
+usecase "Modifier un patient" as UC4_2
+usecase "Supprimer un patient" as UC4_3
+usecase "Activer/désactiver un patient" as UC4_4
+
+usecase "Gérer les rendez-vous" as UC5
+usecase "Créer un rendez-vous" as UC5_1
+usecase "Modifier un rendez-vous" as UC5_2
+usecase "Annuler un rendez-vous" as UC5_3
+usecase "Confirmer un rendez-vous" as UC5_4
+usecase "Visualiser les rendez-vous" as UC5_5
+
+usecase "Gérer les prescriptions" as UC6
+usecase "Ajouter une prescription" as UC6_1
+usecase "Modifier une prescription" as UC6_2
+usecase "Supprimer une prescription" as UC6_3
+
+usecase "Gérer les médicaments" as UC7
+usecase "Ajouter un médicament" as UC7_1
+usecase "Modifier un médicament" as UC7_2
+usecase "Supprimer un médicament" as UC7_3
+
+usecase "Accéder aux outils de communication" as UC8
+usecase "Accéder aux réunions en ligne" as UC8_1
+usecase "Utiliser le chat médical AI" as UC8_2
+
+usecase "Consulter les rendez-vous" as UC9
+usecase "Visualiser les rendez-vous à venir" as UC9_1
+usecase "Visualiser l'historique des rendez-vous" as UC9_2
+
+usecase "Gérer les consultations" as UC10
+usecase "Générer des prescriptions après les consultations" as UC10_1
+usecase "Donner des remarques sur les consultations" as UC10_2
+
+usecase "Modifier le profil" as UC11
+
+usecase "Prendre rendez-vous" as UC12
+usecase "Choisir un médecin et un créneau horaire disponible" as UC12_1
+usecase "Prendre rendez-vous en ligne ou en personne" as UC12_2
+
+usecase "Payer les prescriptions" as UC13
+usecase "Utiliser le chat médical AI pour les patients" as UC14
+
+Admin --> UC1
+Admin --> UC1_1
+Admin --> UC1_2
+Admin --> UC1_3
+
+Admin --> UC2
+Admin --> UC2_1
+Admin --> UC2_2
+Admin --> UC2_3
+Admin --> UC2_4
+Admin --> UC2_5
+
+Admin --> UC3
+Admin --> UC3_1
+Admin --> UC3_2
+Admin --> UC3_3
+
+Admin --> UC4
+Admin --> UC4_1
+Admin --> UC4_2
+Admin --> UC4_3
+Admin --> UC4_4
+
+Admin --> UC5
+Admin --> UC5_1
+Admin --> UC5_2
+Admin --> UC5_3
+Admin --> UC5_4
+Admin --> UC5_5
+
+Admin --> UC6
+Admin --> UC6_1
+Admin --> UC6_2
+Admin --> UC6_3
+
+Admin --> UC7
+Admin --> UC7_1
+Admin --> UC7_2
+Admin --> UC7_3
+
+Admin --> UC8
+Admin --> UC8_1
+Admin --> UC8_2
+
+Doctor --> UC5_5
+Doctor --> UC9
+Doctor --> UC9_1
+Doctor --> UC9_2
+
+Doctor --> UC10
+Doctor --> UC10_1
+Doctor --> UC10_2
+
+Doctor --> UC11
+
+Patient --> UC5_5
+Patient --> UC12
+Patient --> UC12_1
+Patient --> UC12_2
+
+Patient --> UC13
+
+Patient --> UC14
+
+@enduml
