@@ -111,7 +111,7 @@ app.post("/api/message", async (req, res) => {
       service: "Gmail",
       auth: {
         user: "alrahma.hopitale@gmail.com", // Replace with your Gmail email address
-        pass: "jgrstcabltioqzxg", // Replace with your Gmail account password or app-specific password
+        pass: "dzjezodryjvcmlea", // Replace with your Gmail account password or app-specific password
       },
     });
 
