@@ -4,7 +4,7 @@ import css from "./Microphone.module.css";
 import Box from "@mui/material/Box";
 
 const maleVoices = {
-  'ar-MA': 'Microsoft Mehdi Desktop - Arabic (Morocco)',
+  'ar-MA': 'Microsoft Karim Desktop - Arabic (Morocco)',
   'fr-FR': 'Microsoft Hortense Desktop - French (France)',
   'en-US': 'Microsoft David Desktop - English (United States)'
 };
