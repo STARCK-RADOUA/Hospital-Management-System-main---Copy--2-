@@ -4,70 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hospital Management System README</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #0779e4 3px solid;
-        }
-        header a {
-            color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 16px;
-        }
-        header ul {
-            padding: 0;
-            list-style: none;
-        }
-        header li {
-            display: inline;
-            padding: 0 20px 0 20px;
-        }
-        .showcase {
-            min-height: 400px;
-            background: #0779e4;
-            color: #fff;
-            text-align: center;
-            padding-top: 100px;
-        }
-        .showcase h1 {
-            font-size: 55px;
-        }
-        .button {
-            display: inline-block;
-            text-decoration: none;
-            color: #fff;
-            border: 1px solid #fff;
-            padding: 10px 20px;
-            margin-top: 20px;
-            font-size: 18px;
-        }
-        section {
-            padding: 20px;
-            margin: 20px 0;
-        }
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 30px;
-            margin-top: 30px;
-        }
-    </style>
+ 
+    
 </head>
 <body>
     <header>
