@@ -34,9 +34,6 @@ mongoose.connect(
   { useNewUrlParser: true }
 );
 
-app.listen(3001, () => {
-  console.log("App listening on port " + 3001);
-});
 
 app.use(LoginRegisterRoute);
 app.use(DashboardRoute);
@@ -139,4 +136,7 @@ app.use("/api/paypal", require("./routes/api/paypal"));
 app.use("/api/ask", require("./routes/api/ask"));
 app.get("/", (req, res) => {
   res.send("hello world");
+});
+app.listen(3001, () => {
+  console.log("App listening on port " + 3001);
 });

@@ -3,8 +3,7 @@
 import { styled, useTheme } from '@mui/material/styles';
 import MuiDrawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
-import CssBaseline from '@mui/material/CssBaseline';
-import Typography from '@mui/material/Typography';
+
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -12,20 +11,15 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import AccessibleForwardIcon from '@mui/icons-material/AccessibleForward';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
-import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
-import Collapse from '@mui/material/Collapse';
-import chatIcon from '@mui/icons-material/Chat';
-import TableChartIcon from '@mui/icons-material/TableChart';
-import { NavLink, Link, useLocation } from 'react-router-dom'
+
+import { NavLink, useLocation } from 'react-router-dom'
 import React, { useContext } from 'react';
 import { UserContext } from '../../../Context/UserContext'
-import SickIcon from '@mui/icons-material/Sick';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import VaccinesIcon from '@mui/icons-material/Vaccines';
 import ReceiptIcon from '@mui/icons-material/Receipt';

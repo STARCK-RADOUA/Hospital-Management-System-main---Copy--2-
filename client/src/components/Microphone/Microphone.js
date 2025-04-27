@@ -3,8 +3,11 @@ import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognitio
 import css from "./Microphone.module.css";
 import Box from "@mui/material/Box";
 
+
+
+
 const maleVoices = {
-  'ar-MA': 'Microsoft Karim Desktop - Arabic (Morocco)',
+  'ar-MA': 'Microsoft Mehdi Desktop - Arabic (Morocco)',
   'fr-FR': 'Microsoft Hortense Desktop - French (France)',
   'en-US': 'Microsoft David Desktop - English (United States)'
 };
@@ -15,6 +18,8 @@ let isSpeaking = false;
 let messageSend = false;
 
 const Microphone = () => {
+
+
   const { transcript, listening, resetTranscript, browserSupportsSpeechRecognition } = useSpeechRecognition();
   const [selectedLanguage, setSelectedLanguage] = useState('');
   const [chatResponse, setChatResponse] = useState("");
@@ -49,8 +54,9 @@ const Microphone = () => {
         msg.lang = 'en-US';
         break;
       default:
-        msg.lang = 'ar-MA'; // Langue par défaut
-        break;
+          msg.lang = 'ar-MA'; // Langue par défaut
+          break;
+     
     }
     
     const voices = window.speechSynthesis.getVoices().find(({ name }) => maleVoices[selectedLanguage].includes(name));
