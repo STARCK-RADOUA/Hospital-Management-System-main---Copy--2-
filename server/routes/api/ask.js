@@ -97,9 +97,9 @@ const DoctorModelAsString = `
 
 const AppointmentModelAsString = `
 {
-  appointmentDate: Date,
-  appointmentTime: String,
-  appointmentType: String,
+  appointmentDate: Date,  (ex:2025-04-28T00:00:00.000+00:00)
+  appointmentTime: String, (ex: "1:00 PM" or "1:00 AM")
+  appointmentType: String, (ex: "hospital" or "online" )
   isTimeSlotAvailable: Boolean,
   patientId: ObjectId (ref: 'Patient'),
   doctorId: ObjectId (ref: 'Doctor'),
@@ -204,6 +204,45 @@ Ce modèle représente une conversation enregistrée entre un utilisateur et l�
   - (role): le rôle de l’émetteur du message, soit "user" pour l’utilisateur, soit "model" pour l’assistant.
   - (content): le contenu textuel du message.
 - (timestamp): la date et l’heure d’enregistrement de la conversation, générée automatiquement lors de la création.
+
+Architecture de la base de données :
+
+- Chaque utilisateur (User) peut être un 'Admin', 'Patient' ou 'Doctor' selon la valeur du champ 'userType'.
+- Chaque Patient est relié à un User via 'userId'.
+- Chaque Doctor est relié à un User via 'userId'.
+
+Relations supplémentaires :
+- Un Doctor est aussi lié à un Department à travers son champ 'department', qui correspond exactement au 'name' du modèle Department (Department.name == Doctor.department).
+ - les nom de departmentdans db pour pas avoir des comflit (Infectious diseases,Radiologie,Orthopedie,Neurologie,Oncologie,Cardiologie)
+
+Recherche de disponibilité par département :
+
+Si la question cherche les docteurs disponibles par nom de département :
+
+D'abord trouver les docteurs dont doctor.department == department.name.
+
+Ensuite, pour chaque docteur, chercher dans les Appointments :
+
+S'il existe des créneaux (isTimeSlotAvailable = true) sans patientId → Ce docteur est disponible.
+  
+Gestion des Rendez-vous (Appointment) :
+- Un rendez-vous (Appointment) possède un doctorId (référence à Doctor) et un patientId (référence à Patient).
+- S'il existe un Appointment avec :
+  - **doctorId défini** ET **patientId non défini** ET **isTimeSlotAvailable = true** → Cela signifie que **le docteur est disponible** à cet horaire.
+  - **doctorId défini** ET **patientId défini** → Cela signifie que **le créneau est réservé par un patient**.
+- Le champ 'completed' indique si le rendez-vous s'est **réellement déroulé avec succès** :
+  - **completed = true** → Rendez-vous passé avec succès.
+  - **completed = false** → Rendez-vous réservé mais pas encore effectué.
+
+Règles importantes pour la recherche :
+- Pour savoir si un docteur appartient à un département, compare Doctor.department avec Department.name.
+- Pour trouver la disponibilité d'un docteur, recherche les appointments avec doctorId, patientId null et isTimeSlotAvailable true.
+- Pour l'historique ou les rendez-vous pris, cherche les appointments où patientId est défini.
+
+Attention :
+- Respecte toujours les relations entre modèles via les IDs.
+- Les opérations doivent être claires, efficaces et utiliser les bons modèles.
+
 
 Utilise ce modèle pour :
 - retrouver les dernières conversations (par date grâce à (timestamp))
@@ -369,7 +408,9 @@ ${outputString}
 const result2 = await chat.sendMessage(prompt2);
 const response = result2.response.text().replace(/\*/g, '').replace(/\p{Emoji}/ug, '').replace(/\#/g, '');
 await saveConversation(response,"model")
+console.log("final res");
 
+console.log("res",response);
 
 res.json({ response });
 

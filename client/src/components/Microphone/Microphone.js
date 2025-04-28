@@ -71,7 +71,7 @@ const Microphone = () => {
         body: JSON.stringify({ question, selectedLanguage }),
       });
       const data = await response.json();
-      const responseText = data.response.replace(/\*/g, '').replace(/\#/g, '');
+      const responseText = data.response
       setChatResponse(responseText);
       hasSpoken = false; // Reset hasSpoken so that the new response is read
     } catch (error) {

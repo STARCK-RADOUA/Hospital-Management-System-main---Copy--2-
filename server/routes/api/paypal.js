@@ -5,8 +5,7 @@ const Prescription = require("../../models/prescription.js");
 
 paypal.configure({
   mode: 'sandbox', //sandbox or live
-  client_id: "Af7gbOwgvMYS2eNnceIT3a82bxALbKpc83uTU1_zN85z-YzuAyZpqSXO4TmSVCJ_BL_xRz_oUCDYDFB7",
-  client_secret: "EAPGoQPYzhz3eX7tvj5g9X0Do9KY2XasQUUFOrionJlxAQJMwLjdoUGD_8kFpee8GGzfje67vJ-es5qe",
+  client_secret: "-es5qe",
 });
 
 router.post('/payment', async (req, res) => {

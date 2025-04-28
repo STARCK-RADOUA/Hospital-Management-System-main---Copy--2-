@@ -23,6 +23,7 @@ const MedicineRoute = require("./routes/MedicineRoute.js");
 const PrescriptionRoute = require("./routes/PrescriptionRoute.js");
 const InvoiceRoute = require("./routes/InvoiceRoute.js");
 const ProfileRoute = require("./routes/ProfileRoute.js");
+const askAiRoute = require("./routes/askAiRoutes.js");
 
 app.use(cors());
 app.use(bodyParser.json());
