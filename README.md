@@ -108,7 +108,7 @@ The scanner found potential secrets checked into code:
 
 - A MongoDB connection string with credentials is hardcoded in `server/index.js`:
 
-  mongodb+srv://saadi0mehdi:1cmu7lEhWPTW1vGk@cluster0.whkh7vj.mongodb.net/myBase?... (replace immediately)
+  mongodb+srv://------------:------------@cluster0.whkh7vj.mongodb.net/myBase?... (replace immediately)
 
 - A Gmail credential (likely an app password) is directly present in `server/index.js` used by Nodemailer:
 
